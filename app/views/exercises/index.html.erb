@@ -1,0 +1,38 @@
+<div class="progress-bar" data-number-of-exercises="<%= @number_of_exercises %>"></div>
+<div class="controls">
+  <% if current_user %>
+    Signed in as <%= current_user.username %>
+    <%= link_to "Sign out", sign_out_path %>
+  <% else %>
+    <%= link_to sign_up_path do %><span>Sign in</span><% end %>
+    <%= link_to sign_in_path do %><span>Sign out</span><% end %>
+  <% end %>
+</div>
+
+<div class="exercise-area">
+
+  <% if @exercise.ordinality == 1 %>
+<div class="introduction">
+  <h1>Learn AsciiDoc by typing AsciiDoc</h1>
+  <p>This interactive tutorial will get you well on the way to fluency in AsciiDoc, a more robust and better specified alternative to Markdown. The basics of the syntax are almost exactly the same as Markdown, but you'll quickly see how much more powerful AsciiDoc is.</p>
+  <p>Ready to get started? Type in the gray box and you'll see AsciiDoc rendered on the right. Try to make it match the target output on the left!</p>
+</div>
+<% end %>
+
+
+  <div class="exercise" data-ordinality="<%= @exercise.ordinality %>">
+    <header>
+      <h1><%= @exercise.topic %></h1>
+      <div style="clear: both"></div>
+      <p><%= @exercise.description %></p>
+    </header>
+    <div class="parsed">
+      <div class="answer"><%= @exercise.answer %></div>
+      <div class="preview"></div>
+      <div style="clear: both; border-bottom: 1px solid #efefef;"></div>
+    </div>
+    <div class="input">
+      <textarea placeholder="Type AsciiDoc here..."></textarea>
+    </div>
+  </div>
+</div>

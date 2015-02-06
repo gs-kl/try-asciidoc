@@ -1,0 +1,3 @@
+* Send input to server, check on server to see if a match, send back JSON with boolean yes/no for match, as well as rendered output
+* Use a handlebars template for creating the div.exercise and its contents, can effectively make a function that generates html by passing arguments into template
+* Finish writing exercises, write exercises not just for one thing, but for several at once. Perhaps for some, have more vague descriptions and then a hint, if data.hint then have a click to show hint thing

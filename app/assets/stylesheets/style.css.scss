@@ -1,0 +1,131 @@
+body {
+  font-size: 18px;
+  font-family: "Helvetica", "Arial", sans-serif;
+}
+
+.controls {
+  float: right;
+  margin-top: 5px;
+  margin-right: 10px;
+  a {
+    text-decoration: none;
+    color: red;
+    font-size: 0.75em;
+  }
+}
+
+.progress-bar {
+  height: 5px;
+  background-color: red;
+  width: 0px;
+}
+
+.introduction {
+  margin-bottom: 2em;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #dfdfdf;
+  color: #333;
+  background-color: #fafafa;
+  h1 {
+    font-weight: 700;
+    margin-bottom: 1em;
+  }
+  p {
+    line-height: 1.25em;
+    margin-bottom: 1em;
+  }
+  p:last-of-type{
+    margin-bottom: 0;
+  }
+}
+
+
+.exercise-area {
+  width: 850px;
+  margin: auto;
+  min-height: 100px;
+  padding: 50px;
+}
+
+.exercise {
+  margin-bottom: 30px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ccc;
+}
+
+.check{
+  float: right;
+  color: green;
+  font-size: 2em;
+}
+
+.exercise header {
+  h1 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    float: left;
+  }
+  p {
+    color: gray;
+    margin-bottom: 0.75em;
+    line-height: 1.25em;
+  }
+}
+
+
+.input {
+}
+.input textarea {
+  font-family: monospace;
+  resize: none;
+  width: 100%;
+  background-color: #efefef;
+  border: 0px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 1em;
+  min-height: 100px;
+  border-radius: 0 0 10px 10px;
+}
+.input textarea:focus{
+  outline: none;
+}
+.preview {
+  height: 7em;
+  width: 50%;
+  float: right;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow: scroll;
+  border-top: 1px solid #efefef;
+}
+.answer {
+  width: 50%;
+  height: 7em;
+  float: left;
+  overflow: scroll;
+  padding: 10px;
+  box-sizing: border-box;
+  border-right: 1px solid #efefef;
+  border-top: 1px solid #efefef;
+}
+
+.next{
+  border: 0;
+  font-weight: 700;
+  font-size: 1em;
+  background-color: white;
+  padding: 0.5em 1em;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  color: green;
+  border: 1px solid green;
+}
+.next:hover{
+  background-color: green;
+  color: white;
+}

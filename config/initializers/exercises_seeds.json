@@ -1,0 +1,27 @@
+{
+  "1": {
+    "topic": "Paragraphs",
+    "description": "AsciiDoc paragraphs are blocks of text separated by at least one blank line.",
+    "answer": "First paragraph.\n\nSecond paragraph."
+  },
+  "2": {
+    "topic": "Bold text",
+    "description": "Make a whole word or phrase bold by surrounding it with asterisks. Make letters within a word bold by surrounding them with double asterisks.",
+    "answer": "*bold phrase*\n\n**b**old lett**ers**"
+  },
+  "3": {
+    "topic": "Italic text",
+    "description": "The syntax for italic text in AsciiDoc follows the model of bold text, except using underscores instead of asterisks. Make a whole word or phrase italic by surrounding it with single underscores. Make letters within a word italic by surrounding them with double underscores.",
+    "answer": "_italic phrase_\n\n__it__alic lett__ers__"
+  },
+  "4": {
+    "topic": "Bold italic text",
+    "description": "Can you guess how to do this one? Double up on asterisks and underscores, and if you're not sure which to put first, remember that we don't say \"italic bold.\"",
+    "answer": "*_italic phrase_*\n\n**__it__**alic lett**__ers__**"
+  },
+  "5": {
+    "topic": "Superscript",
+    "description": "Make a word or part of a word superscript by surrounding it with carets.",
+    "answer": "^super^script"
+  }
+}
