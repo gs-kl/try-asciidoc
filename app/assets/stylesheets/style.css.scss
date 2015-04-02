@@ -1,51 +1,35 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700);
+
+
 body {
   font-size: 18px;
   font-family: "Helvetica", "Arial", sans-serif;
 }
 
-.controls {
-  float: right;
-  margin-top: 5px;
-  margin-right: 10px;
-  a {
-    text-decoration: none;
-    color: red;
-    font-size: 0.75em;
+header{
+  background-color: #73a0c5;
+  h1{
+    font-family: "Courier New";
+    font-weight: 600;
+    font-size: 2em;
+    line-height: 1em;
+    padding: 0.5em;
+    color: #fff;
   }
 }
 
 .progress-bar {
   height: 5px;
-  background-color: red;
+  background-color: #ccc;
   width: 0px;
 }
 
-.introduction {
-  margin-bottom: 2em;
-  padding: 20px;
-  border-radius: 10px;
-  border: 1px solid #dfdfdf;
-  color: #333;
-  background-color: #fafafa;
-  h1 {
-    font-weight: 700;
-    margin-bottom: 1em;
-  }
-  p {
-    line-height: 1.25em;
-    margin-bottom: 1em;
-  }
-  p:last-of-type{
-    margin-bottom: 0;
-  }
-}
 
 
 .exercise-area {
   width: 850px;
-  margin: auto;
+  margin: 36px auto;
   min-height: 100px;
-  padding: 50px;
 }
 
 .exercise {
@@ -53,17 +37,27 @@ body {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px #ccc;
+  border: 1px solid #eee;
+}
+
+
+.exercise-number{
+  font-family: "Courier New";
+  float: right;
+  color: #999;
+  font-size: 2em;
 }
 
 .check{
   float: right;
-  color: green;
+  color: #77C473;
   font-size: 2em;
 }
 
-.exercise header {
+
+.exercise-info {
   h1 {
+    font-family: "Courier New";
     font-size: 2em;
     margin-bottom: 0.5em;
     float: left;
@@ -72,12 +66,11 @@ body {
     color: gray;
     margin-bottom: 0.75em;
     line-height: 1.25em;
+    font-size: 0.9em;
   }
 }
 
 
-.input {
-}
 .input textarea {
   font-family: monospace;
   resize: none;
@@ -122,10 +115,27 @@ body {
   width: 100%;
   border-radius: 5px;
   cursor: pointer;
-  color: green;
-  border: 1px solid green;
+  color: #77C473;
+  border: 1px solid #77C473;
 }
 .next:hover{
-  background-color: green;
+  background-color: #77C473;
   color: white;
+}
+
+footer{
+  background-color: #F1F5F9;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  p {
+    color: #87A9C9;
+    padding: 1em;
+    font-size: 0.8em;
+  }
+  a {
+    color: #87A9C9;
+    text-decoration: none;
+    font-weight: 700;
+  }
 }

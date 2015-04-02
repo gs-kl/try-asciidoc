@@ -1,7 +1,7 @@
 {
   "1": {
     "topic": "Paragraphs",
-    "description": "AsciiDoc paragraphs are blocks of text separated by at least one blank line.",
+    "description": "This interactive tutorial will get you well on the way to fluency in AsciiDoc, a more robust and better specified alternative to Markdown. The basics of the syntax are almost exactly the same as Markdown, but you'll quickly see how much more powerful AsciiDoc is.\n\nJust as in Markdown, AsciiDoc paragraphs are blocks of text separated by at least one blank line. Type AsciiDoc in the gray box and try to match the target output.",
     "answer": "First paragraph.\n\nSecond paragraph."
   },
   "2": {

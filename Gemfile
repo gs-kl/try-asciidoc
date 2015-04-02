@@ -41,3 +41,4 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'asciidoctor'
 gem 'underscore-rails'
 gem 'font-awesome-rails'
+gem 'rails_12factor', group: :production

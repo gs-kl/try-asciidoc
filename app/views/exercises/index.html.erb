@@ -1,31 +1,21 @@
+<header>
+<h1>Try AsciiDoc!</h1>
+</header>
+
 <div class="progress-bar" data-number-of-exercises="<%= @number_of_exercises %>"></div>
-<div class="controls">
-  <% if current_user %>
-    Signed in as <%= current_user.username %>
-    <%= link_to "Sign out", sign_out_path %>
-  <% else %>
-    <%= link_to sign_up_path do %><span>Sign in</span><% end %>
-    <%= link_to sign_in_path do %><span>Sign out</span><% end %>
-  <% end %>
-</div>
+
 
 <div class="exercise-area">
 
-  <% if @exercise.ordinality == 1 %>
-<div class="introduction">
-  <h1>Learn AsciiDoc by typing AsciiDoc</h1>
-  <p>This interactive tutorial will get you well on the way to fluency in AsciiDoc, a more robust and better specified alternative to Markdown. The basics of the syntax are almost exactly the same as Markdown, but you'll quickly see how much more powerful AsciiDoc is.</p>
-  <p>Ready to get started? Type in the gray box and you'll see AsciiDoc rendered on the right. Try to make it match the target output on the left!</p>
-</div>
-<% end %>
-
-
   <div class="exercise" data-ordinality="<%= @exercise.ordinality %>">
-    <header>
+    <div class="exercise-info">
       <h1><%= @exercise.topic %></h1>
+      <div class="exercise-number">#<%= @exercise.ordinality %></div>
       <div style="clear: both"></div>
       <p><%= @exercise.description %></p>
-    </header>
+    </div>
+
+
     <div class="parsed">
       <div class="answer"><%= @exercise.answer %></div>
       <div class="preview"></div>
@@ -35,4 +25,31 @@
       <textarea placeholder="Type AsciiDoc here..."></textarea>
     </div>
   </div>
+
 </div>
+
+
+
+<footer>
+  <p>Try AsciiDoc by <a href="http://kevinlitchfield.github.io">Kevin Litchfield</a>, powered by <a href="http://asciidoctor.org/">Asciidoctor</a>. <a href="http://asciidoc.org/">AsciiDoc</a> is by <a href="http://www.methods.co.nz/stuart.html">Stuart Rackham</a> and contributors.</p>
+</footer>
+
+
+<script id="exercise-template" type="text/x-handlebars-template">
+<div class="exercise" data-ordinality="{{ordinality}}">
+    <div class="exercise-info">
+      <h1>{{topic}}</h1>
+      <div class="exercise-number">#{{ordinality}}</div>
+      <div style="clear: both"></div>
+      <p>{{description}}</p>
+    </div>
+    <div class="parsed">
+      <div class="answer">{{answer}}</div>
+      <div class="preview"></div>
+      <div style="clear: both; border-bottom: 1px solid #efefef;"></div>
+    </div>
+    <div class="input">
+      <textarea placeholder="Type AsciiDoc here..."></textarea>
+    </div>
+  </div>
+</script>

@@ -10,9 +10,11 @@ function parseAnswer(){
   });
 }
 
+
 function createNextButton(){
   $("textarea").attr("disabled", true);
   var nextButton = $("<button class='next'>Next</button>");
+  $(".exercise-number").remove();
   $(".exercise h1").after("<div class='check'><i class='fa fa-check'></i></div>");
   $(".exercise").after(nextButton);
 }
@@ -32,45 +34,26 @@ var parseInput = _.debounce(function(){
     var parsedAnswer = $(".answer").html();
     var parsedInput = preview.html();
     if (parsedInput === parsedAnswer){
-      $.ajax({
-        method: "post",
-        url: "/records/create",
-        data: {ordinality: ordinality}
-      }).done(function(){
-        createNextButton();
-      }).fail(function(){
-        createNextButton();
-      });
+      createNextButton();
     }
   });
-}, 300);
+}, 150);
 
 
-function createNextExercise(data){
-  var container = $("<div class='exercise' data-ordinality=" + data.ordinality + "></div>");
-  
-  var header = $("<header></header>");
-  header.append("<h1>" + data.topic + "</h1>");
-  header.append("<div style='clear: both'></div>");
-  header.append("<p>" + data.description + "</p>");
-  container.append(header);
-
-  var parsed = $("<div class='parsed'></div>");
-  parsed.append("<div class='answer'>" + data.answer + "</div>");
-  parsed.append("<div class='preview'></div>");
-  parsed.append("<div style='clear: both; border-bottom: 1px solid #efefef;'></div>");
-  container.append(parsed);
-
-  container.append("<div class='input'><textarea placeholder='Type AsciiDoc here...'></textarea></div>");
-
-  $(".exercise-area").append(container);
+function createExercise(data){
+  var source = $("#exercise-template").html();
+  var template = Handlebars.compile(source);
+  var context = {ordinality: data.ordinality, topic: data.topic, description: data.description, answer: data.answer};
+  var html = template(context);
+  $(".exercise-area").append(html);
   parseAnswer();
 }
 
+
 function updateProgressBar(option){
-  var currentExercise = parseInt($(".exercise").data("ordinality"));
+  var currentExerciseOrdinality = parseInt($(".exercise").data("ordinality"));
   var numberOfExercises = parseInt($(".progress-bar").data("number-of-exercises"));
-  var percentageWidth = currentExercise / numberOfExercises * 100;
+  var percentageWidth = (currentExerciseOrdinality / numberOfExercises - 1 / numberOfExercises) * 100;
   if (option === "init"){
     $(".progress-bar").width(percentageWidth + "%");  
   } else {
@@ -95,10 +78,28 @@ $(document).ready(function(){
       data: {input: ordinality}
     })
     .done(function(data){
-      createNextExercise(data);
+      // http://stackoverflow.com/questions/824349/modify-the-url-without-reloading-the-page
+      // history.pushState(data, "title", "/asdf");
+      //
+      //
+      // need to add this when page loads! this should be added for the one before, not the current one
+      // only one thing is getting pushed to history, not a sequence of things.
+      history.pushState({data: data}, "", "/" + data.ordinality.toString());
+      createExercise(data);
       updateProgressBar();
     });
   });
+
+  window.onpopstate = function(e){
+    if (e.state){
+      console.log(e);
+      console.log(e.state);
+      console.log(e.state.data);
+
+      // createExercise(e.state);
+      // updateProgressBar();
+    }
+  };
 
   $(".exercise-area").on("keyup", "textarea", parseInput);
 });
