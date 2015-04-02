@@ -41,6 +41,7 @@ var parseInput = _.debounce(function(){
 
 
 function createExercise(data){
+    $(".exercise-area").empty();
   var source = $("#exercise-template").html();
   var template = Handlebars.compile(source);
   var context = {ordinality: data.ordinality, topic: data.topic, description: data.description, answer: data.answer};
@@ -71,7 +72,6 @@ $(document).ready(function(){
 
   $(".exercise-area").on("click", ".next", function(){
     var ordinality = $(".exercise").data("ordinality");
-    $(".exercise-area").empty();
     $.ajax({
       method: "get",
       url: "/next-exercise",
@@ -96,8 +96,8 @@ $(document).ready(function(){
       console.log(e.state);
       console.log(e.state.data);
 
-      // createExercise(e.state);
-      // updateProgressBar();
+      createExercise(e.state.data);
+      updateProgressBar();
     }
   };
 

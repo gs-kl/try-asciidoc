@@ -23,5 +23,14 @@
     "topic": "Superscript",
     "description": "Make a word or part of a word superscript by surrounding it with carets.",
     "answer": "^super^script"
+  },
+
+  "6": {
+    "topic": "Superscript",
+    "description": "Make a word or part of a word superscript by surrounding it with carets.",
+    "answer": "^super^script"
   }
+
+
+
 }
