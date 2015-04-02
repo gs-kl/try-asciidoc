@@ -70,12 +70,25 @@ $(document).ready(function(){
   updateProgressBar("init");
   userRecord = {};
 
+
+  var ordinality = $(".exercise-area").data("starting-ordinality");
+  $.ajax({
+    method: "get",
+    url: "/exercises/" + ordinality + ".json"
+  })
+  .done(function(data){
+    history.pushState({data: data}, "", "/" + data.ordinality.toString());
+    createExercise(data);
+    updateProgressBar();
+  });
+
+
+
   $(".exercise-area").on("click", ".next", function(){
     var ordinality = $(".exercise").data("ordinality");
     $.ajax({
       method: "get",
-      url: "/next-exercise",
-      data: {input: ordinality}
+      url: "/exercises/" + ordinality + "/next.json",
     })
     .done(function(data){
       // http://stackoverflow.com/questions/824349/modify-the-url-without-reloading-the-page

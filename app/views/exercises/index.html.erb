@@ -4,36 +4,11 @@
 
 <div class="progress-bar" data-number-of-exercises="<%= @number_of_exercises %>"></div>
 
-
-<div class="exercise-area">
-
-  <div class="exercise" data-ordinality="<%= @exercise.ordinality %>">
-    <div class="exercise-info">
-      <h1><%= @exercise.topic %></h1>
-      <div class="exercise-number">#<%= @exercise.ordinality %></div>
-      <div style="clear: both"></div>
-      <p><%= @exercise.description %></p>
-    </div>
-
-
-    <div class="parsed">
-      <div class="answer"><%= @exercise.answer %></div>
-      <div class="preview"></div>
-      <div style="clear: both; border-bottom: 1px solid #efefef;"></div>
-    </div>
-    <div class="input">
-      <textarea placeholder="Type AsciiDoc here..."></textarea>
-    </div>
-  </div>
-
-</div>
-
-
+<div class="exercise-area" data-starting-ordinality="<%= @exercise.ordinality %>"></div>
 
 <footer>
-  <p>Try AsciiDoc by <a href="http://kevinlitchfield.github.io">Kevin Litchfield</a>, powered by <a href="http://asciidoctor.org/">Asciidoctor</a>. <a href="http://asciidoc.org/">AsciiDoc</a> is by <a href="http://www.methods.co.nz/stuart.html">Stuart Rackham</a> and contributors.</p>
+<p>Try AsciiDoc by <a href="http://kevinlitchfield.github.io">Kevin Litchfield</a>, powered by <a href="http://asciidoctor.org/">Asciidoctor</a>. <a href="http://asciidoc.org/">AsciiDoc</a> is by <a href="http://www.methods.co.nz/stuart.html">Stuart Rackham</a> and contributors.</p>
 </footer>
-
 
 <script id="exercise-template" type="text/x-handlebars-template">
 <div class="exercise" data-ordinality="{{ordinality}}">
