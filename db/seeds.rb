@@ -6,10 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Exercise.create(ordinality: 1, topic: "Basic paragraphs", description: "Creating paragraphs", answer: "Making a new paragraph in AsciiDoc is easy.\n\nJust separate it from the previous paragraph with at least one blank line.")
+require 'json'
 
-Exercise.create(ordinality: 2, topic: "Superscript", description: "Superscript text", answer: "^super^script")
+Exercise.all.each{|x| x.delete}
 
+file = File.read("config/initializers/exercises_seeds.json")
+exercises = JSON.parse(file)
 
-
-
+exercises.each do |ordinality, properties|
+  Exercise.create(ordinality: ordinality.to_i, topic: properties["topic"], description: properties["description"], answer: properties["answer"])
+end
